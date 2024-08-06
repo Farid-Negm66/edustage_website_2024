@@ -66,6 +66,9 @@ Route::group(['prefix' => '/', 'namespace' => 'App\Http\Controllers\Front'], fun
 
     // table_prices Routes
     Route::group(['prefix' => 'table_prices'] , function (){
+        Route::get('/' , 'TablePricesController@all_periods');
+
+
         Route::group(['prefix' => 'term'] , function (){
             Route::get('/' , 'TablePricesController@index');
             

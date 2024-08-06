@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class TablePricesController extends Controller
 {
+    public function all_periods()
+    {
+        return view('front.table_prices.all_periods');
+    }
+
     public function index()
     {
         return view('front.table_prices.term.index');
