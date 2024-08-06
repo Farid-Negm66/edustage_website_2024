@@ -84,7 +84,7 @@
                             </li> --}}
                             
                             <li style="padding: 0px 5px;">
-                                <a class="{{ Illuminate\Support\Facades\Route::current()->uri() == 'table_prices/term' ? 'active' : '' }}" style="font-weight: bold;" href="{{ url('/table_prices/term') }}">الاشتراكات وجداول الحصص</a>
+                                <a class="{{ Illuminate\Support\Facades\Route::current()->uri() == 'table_prices' ? 'active' : '' }}" style="font-weight: bold;" href="{{ url('/table_prices') }}">الاشتراكات وجداول الحصص</a>
                             </li>
 
                             {{-- <li style="padding: 0px 5px;">
@@ -587,7 +587,7 @@
                 </li> --}}
                 
                 <li>
-                    <a class="{{ Illuminate\Support\Facades\Route::current()->uri() == 'table_prices/term' ? 'active' : '' }}" style="font-weight: bold;" href="{{ url('/table_prices/term') }}">الاشتراكات وجداول الحصص</a>
+                    <a class="{{ Illuminate\Support\Facades\Route::current()->uri() == 'table_prices' ? 'active' : '' }}" style="font-weight: bold;" href="{{ url('/table_prices') }}">الاشتراكات وجداول الحصص</a>
                 </li>
 
                 {{-- <li>

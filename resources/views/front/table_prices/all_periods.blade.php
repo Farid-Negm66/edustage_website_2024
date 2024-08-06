@@ -1,15 +1,30 @@
 @extends('front.layouts.app')
 
 @section('title')
-    أنظمة الأكاديمية
+    {{ $pageNameAr }}
 @endsection
 
 @section('header')
     <style>
         .rbt-service.rbt-service-2 .inner .thumbnail {
-            flex-basis: 35%;
+            flex-basis: 40%;
             margin: 0px auto;
         }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .rbt-service.rbt-service-2 .inner .thumbnail img {
+                width: 55%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .rbt-service.rbt-service-2 .inner .thumbnail img {
+                width: 40%;
+                margin-bottom: 20px;
+            }
+        }
+
     </style>
 @endsection
 
@@ -28,13 +43,13 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="breadcrumb-inner text-center">
-                                <h2 class="title">أنظمة الأكاديمية</h2>
+                                <h2 class="title">{{ $pageNameAr }}</h2>
                                 <ul class="page-list">
                                     <li class="rbt-breadcrumb-item"><a href="{{ url('/') }}">الرئيسية</a></li>
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
-                                    <li class="rbt-breadcrumb-item active">الترم/مسار مصري - سفارة</li>
+                                    <li class="rbt-breadcrumb-item active">{{ $pageNameAr }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -52,13 +67,13 @@
                     <div class="rbt-service rbt-service-2 rbt-hover-02">
                         <div class="inner">
                             <div class="content">
-                                <h4 class="title"><a href="{{ url('table_prices/term/primary_stage') }}">المدرسة الصباحية</a></h4>
-                                <a class="transparent-button" href="{{ url('table_prices/term/primary_stage') }}">
+                                <h4 class="title"><a href="{{ url('table_prices/morning_school') }}">المدرسة الصباحية</a></h4>
+                                <a class="transparent-button" href="{{ url('table_prices/morning_school') }}">
                                     المزيد<i class="feather-chevron-left" style="position: relative;top: 1px;margin: 0px 5px;"></i>
                                 </a>
                             </div>
                             <div class="thumbnail">
-                                <a href="{{ url('table_prices/term/primary_stage') }}">
+                                <a href="{{ url('table_prices/morning_school') }}">
                                     <img src="{{ url('front') }}/assets/images/table_prices/sun3.png" alt="Education Images">
                                 </a>
                             </div>
@@ -70,13 +85,13 @@
                     <div class="rbt-service rbt-service-2 rbt-hover-02 ">
                         <div class="inner">
                             <div class="content">
-                                <h4 class="title"><a href="{{ url('table_prices/term/middle_stage') }}">الفصول المسائية</a></h4>
-                                <a class="transparent-button" href="{{ url('table_prices/term/middle_stage') }}">
+                                <h4 class="title"><a href="{{ url('table_prices/term') }}">الفصول المسائية</a></h4>
+                                <a class="transparent-button" href="{{ url('table_prices/term') }}">
                                     المزيد<i class="feather-chevron-left" style="position: relative;top: 1px;margin: 0px 5px;"></i>
                                 </a>
                             </div>
                             <div class="thumbnail">
-                                <a href="{{ url('table_prices/term/middle_stage') }}">
+                                <a href="{{ url('table_prices/term') }}">
                                     <img src="{{ url('front') }}/assets/images/table_prices/moon1.png" alt="Education Images">
                                 </a>
                             </div>

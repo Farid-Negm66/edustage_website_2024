@@ -182,6 +182,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="breadcrumb-inner text-center">
+                                <h2 class="title2">الفصول المسائية</h2>
                                 <h2 class="title">{{ $find['class_room_name'] }}</h2>
                                 <ul class="page-list text-center">
                                     <li class="rbt-breadcrumb-item"><a href="{{ url('/') }}">الرئيسية</a></li>

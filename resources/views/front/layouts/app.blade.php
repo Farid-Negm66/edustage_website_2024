@@ -48,6 +48,17 @@
             color: var(--color-primary);
             border-bottom: 3px solid var(--color-primary);
         }
+        .breadcrumb-inner .title{
+          font-size: 30px !important;
+        }
+        .breadcrumb-inner .title2{
+          color: #ee4402;
+          font-size: 22px !important;
+          text-decoration: underline;
+        }
+        .rbt-card.variation-03 .rbt-card-body{
+          display: block !important;
+        }
     </style>
 	@yield('header')
 </head>

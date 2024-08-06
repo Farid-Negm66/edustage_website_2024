@@ -182,7 +182,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="breadcrumb-inner text-center">
-                                <h2 class="title2">الفصول المسائية</h2>
+                                <h2 class="title2">المدرسة الصباحية</h2>
                                 <h2 class="title">{{ $find['class_room_name'] }}</h2>
                                 <ul class="page-list text-center">
                                     <li class="rbt-breadcrumb-item"><a href="{{ url('/') }}">الرئيسية</a></li>
@@ -413,7 +413,7 @@
                                                     نعم أريد الاستفادة بالخصومات الآن   
                                                 </h2>
 
-                                                <a class="rbt-btn rbt-switch-btn rbt-switch-y bg-white" style="color: #2f57ef;font-weight: bold;margin-top: 25px;padding: 0px 60px;" href="https://forms.gle/4SpH9T4k4QWXCaE67" target="_blank">
+                                                <a class="rbt-btn rbt-switch-btn rbt-switch-y bg-white" style="color: #2f57ef;font-weight: bold;margin-top: 25px;padding: 0px 60px;" href="https://forms.gle/9Mf57MPUaRFrcUmm6" target="_blank">
                                                     <span data-text="اضغط هنا للتسجيل">
                                                         اضغط هنا للتسجيل
                                                         <i class="fa fa-pen" style="position: relative;top: 22px;margin: 0px 3px;"></i>
@@ -519,7 +519,7 @@
                             <span class="off-price">$1500.00</span>
                         </div> --}}
                         <div class="rbt-single-list action-btn text-white">
-                            <a class="rbt-btn btn-white rbt-marquee-btn radius-round" href="https://forms.gle/4SpH9T4k4QWXCaE67" target="_blank">
+                            <a class="rbt-btn btn-white rbt-marquee-btn radius-round" href="https://forms.gle/9Mf57MPUaRFrcUmm6" target="_blank">
                                 <span data-text="سجـل الآن" style="padding: 0px 20px;">
                                     سجـل الآن
                                 </span>
