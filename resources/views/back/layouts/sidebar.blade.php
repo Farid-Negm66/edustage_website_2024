@@ -9,6 +9,28 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-sun"></i>
+                        <span key="t-multi-level">جداول المدرسة الصباحية</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse" aria-expanded="true">
+                        <li><a href="{{ url('admin/table_prices_morning_school') }}" key="t-level-1-1">جميع الجداول</a></li>
+                        <li><a href="{{ url('admin/table_prices_morning_school/create') }}" key="t-level-1-1">اضافة جدول</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-moon"></i>
+                        <span key="t-multi-level">جداول الفصول المسائية</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse" aria-expanded="true">
+                        <li><a href="{{ url('admin/table_prices') }}" key="t-level-1-1">جميع الجداول</a></li>
+                        <li><a href="{{ url('admin/table_prices/create') }}" key="t-level-1-1">اضافة جدول</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fa fa-users"></i>
                         <span key="t-multi-level">@lang('app.peoples')</span>
                     </a>
@@ -46,17 +68,7 @@
                         <li><a href="{{ url('admin/about_acadmy/create') }}" key="t-level-1-1">@lang('app.create_about_acadmy')</a></li>
                     </ul>
                 </li>
-               
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="fas fa-table"></i>
-                        <span key="t-multi-level">@lang('app.table_prices')</span>
-                    </a>
-                    <ul class="sub-menu mm-collapse" aria-expanded="true">
-                        <li><a href="{{ url('admin/table_prices') }}" key="t-level-1-1">@lang('app.table_prices')</a></li>
-                        <li><a href="{{ url('admin/table_prices/create') }}" key="t-level-1-1">@lang('app.create_table_prices')</a></li>
-                    </ul>
-                </li>
+            
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

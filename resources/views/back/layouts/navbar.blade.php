@@ -203,7 +203,7 @@
                 </div>
             </div>
 
-            <div class="dropdown d-inline-block">
+            {{-- <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="far fa-moon" style="font-size: 20px;"></i>
                 </button>
@@ -220,7 +220,7 @@
                     </a>
                     <!-- item-->
                 </div>
-            </div>
+            </div> --}}
 
             <div class="dropdown d-none d-lg-inline-block ms-1" id="fullscreen">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">

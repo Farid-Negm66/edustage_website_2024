@@ -12,17 +12,18 @@ use Yajra\DataTables\Facades\DataTables;
 use Intervention\Image\Facades\Image;
 
 
-class TablePriceController extends Controller
+class TablePriceMorningSchoolController extends Controller
 {
     public function index()
     {
-        
-        return view('back.table_prices.index');
+        $pageNameAr = 'جداول وباقات الاشتراكات في المدرسة الصباحية';
+        return view('back.table_prices_morning_school.index', compact('pageNameAr'));
     }
 
     public function create()
     {
-        return view('back.table_prices.add');
+        $pageNameAr = 'اضافة باقة اشتراك في المدرسة الصباحية';
+        return view('back.table_prices_morning_school.add', compact('pageNameAr'));
     }
 
     public function store(Request $request)
@@ -31,7 +32,6 @@ class TablePriceController extends Controller
             'class_room_name' => 'required|unique:table_prices,class_room_name',
             'one_mat_table_prices' => 'required',
             'arabic_lessons_time' => 'required',
-            'english_lessons_time' => 'required',
             // 'one_mat_body_desc' => 'required',
             // 'one_mat_heading_desc' => 'required',
             // 'all_mat_img_desc'=> 'mimes:jpeg,jpg,png,gif',
@@ -40,9 +40,8 @@ class TablePriceController extends Controller
         ],[
             'class_room_name.required' => 'قيمة الصف الدراسي مطلوبة',
             'class_room_name.unique' => 'قيمة الصف الدراسي مستخدمة من قبل',
-            'one_mat_table_prices.required' => 'قيمة جدول اسعار الباقة مطلوب',
-            'arabic_lessons_time.required' => 'قيمة جدول الحصص بالعربي مطلوبة',
-            'english_lessons_time.required' => 'قيمة جدول الحصص باللغات مطلوبة',
+            'one_mat_table_prices.required' => 'قيمة الإشتراك مطلوبة',
+            'arabic_lessons_time.required' => 'قيمة جدول الحصص مطلوبة',
             // 'one_mat_heading_desc.required' => 'قيمة وصف عنوان الباقة مطلوبة',
             // 'one_mat_body_desc.required' => 'قيمة وصف الباقة مطلوبة',
             // 'all_mat_img_desc.mimes' => 'يجب أن يكون الملف عبارة عن صورة من نوع : jpeg ، jpg ، png ، gif',
@@ -87,24 +86,25 @@ class TablePriceController extends Controller
             'one_mat_counter_from' => request('one_mat_counter_from'),
             'one_mat_counter_to' => request('one_mat_counter_to'),
             'arabic_lessons_time' => request('arabic_lessons_time'),
-            'english_lessons_time' => request('english_lessons_time'),
+            'english_lessons_time' => null,
         ];
 
         TablePrice::create($data);
 
-        return redirect()->to('admin/table_prices');
+        return redirect()->to('admin/table_prices_morning_school');
     }
 
     public function show($id)
     {
         $find = TablePrice::where('id' , $id)->first();
-        return view('back.table_prices.show', compact('find'));
+        return view('back.table_prices_morning_school.show', compact('find'));
     }
 
     public function edit($id)
     {
         $find = TablePrice::where('id' , $id)->first();
-        return view('back.table_prices.edit', compact('find'));
+        $pageNameAr = 'تعديل باقة اشتراك في المدرسة الصباحية';
+        return view('back.table_prices_morning_school.edit', compact('find', 'pageNameAr'));
     }
 
     public function update(Request $request, $id)
@@ -115,7 +115,6 @@ class TablePriceController extends Controller
             'class_room_name' => 'required|unique:table_prices,class_room_name,'.$id,
             'one_mat_table_prices' => 'required',
             'arabic_lessons_time' => 'required',
-            'english_lessons_time' => 'required',
             // 'one_mat_body_desc' => 'required',
             // 'one_mat_heading_desc' => 'required',
             // 'all_mat_img_desc'=> 'mimes:jpeg,jpg,png,gif',
@@ -124,9 +123,8 @@ class TablePriceController extends Controller
         ],[
             'class_room_name.required' => 'قيمة الصف الدراسي مطلوبة',
             'class_room_name.unique' => 'قيمة الصف الدراسي مستخدمة من قبل',
-            'one_mat_table_prices.required' => 'قيمة جدول اسعار الباقة مطلوب',
-            'arabic_lessons_time.required' => 'قيمة جدول الحصص بالعربي مطلوبة',
-            'english_lessons_time.required' => 'قيمة جدول الحصص باللغات مطلوبة',
+            'one_mat_table_prices.required' => 'قيمة الإشتراك مطلوبة',
+            'arabic_lessons_time.required' => 'قيمة جدول الحصص مطلوبة',
             // 'one_mat_heading_desc.required' => 'قيمة وصف عنوان الباقة مطلوبة',
             // 'one_mat_body_desc.required' => 'قيمة وصف الباقة مطلوبة',
             // 'all_mat_img_desc.mimes' => 'يجب أن يكون الملف عبارة عن صورة من نوع : jpeg ، jpg ، png ، gif',
@@ -175,14 +173,13 @@ class TablePriceController extends Controller
             'one_mat_counter_from' => request('one_mat_counter_from'),
             'one_mat_counter_to' => request('one_mat_counter_to'),
             'arabic_lessons_time' => request('arabic_lessons_time'),
-            'english_lessons_time' => request('english_lessons_time'),
+            'english_lessons_time' => null,
         ];
 
         $find->update($data);
 
-        return redirect()->to('admin/table_prices');
+        return redirect()->to('admin/table_prices_morning_school');
     }
-
 
 
 
@@ -195,7 +192,7 @@ class TablePriceController extends Controller
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function datatable_table_prices()
     {
-        $all = TablePrice::all();
+        $all = TablePrice::where('id', '>', 12)->get();
         return DataTables::of($all)
         // ->addColumn('id', function($res){
         //     return '<form class"form_delete_selected">
@@ -214,7 +211,7 @@ class TablePriceController extends Controller
                 </div>";
         })
         ->addColumn('action', function($res){
-            $buttons = '<a href="'.url('admin/table_prices/edit/'.$res->id).'" class="btn btn-outline-success btn-sm" title="Edit">
+            $buttons = '<a href="'.url('admin/table_prices_morning_school/edit/'.$res->id).'" class="btn btn-outline-success btn-sm" title="Edit">
                 <i class="fas fa-pencil-alt"></i>
             </a>';
             
@@ -222,7 +219,7 @@ class TablePriceController extends Controller
             //     <i class="fas fa-trash-alt"></i>
             // </a>';
 
-            // $buttons .= '<a href="'.url('admin/table_prices/show/'.$res->id).'" class="btn btn-outline-info btn-sm" style="margin: 0px 5px;">
+            // $buttons .= '<a href="'.url('admin/table_prices_morning_school/show/'.$res->id).'" class="btn btn-outline-info btn-sm" style="margin: 0px 5px;">
             //     <i class="fas fa-eye"></i>
             // </a>';
 

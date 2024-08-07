@@ -189,7 +189,11 @@
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
-                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">الترم/مسار مصري - سفارة</a></li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('table_prices') }}">أنظمة الدراسة بالأكاديمية</a></li>
+                                    <li>
+                                        <div class="icon-left"><i class="feather-chevron-left"></i></div>
+                                    </li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">التيرم داخل مصر / طلاب السفارة</a></li>
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
@@ -276,7 +280,7 @@
                         @endif    
 
                         <br style="margin: 50px 0px 30px !important;" id="packages">
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="packages">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
                                 <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">باقات الاشتراك</h2>
                             </div>
@@ -298,8 +302,8 @@
                             </div>                            
                         </div>
 
-                        <br>
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="arabic_table">
+                        <br id="arabic_table">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
                                 <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">جدول العربي</h2>
                             </div>
@@ -320,8 +324,8 @@
                             </div>
                         </div>
 
-                        <br>
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="english_table">
+                        <br id="english_table">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
                                 <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">جدول اللغات</h2>
                             </div>
@@ -396,7 +400,7 @@
 
 
                         <br style="margin: 50px 0px 30px !important;" id="register_now"/>
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="register_now">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
                                 <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">سجل معنا الان</h2>
                             </div>

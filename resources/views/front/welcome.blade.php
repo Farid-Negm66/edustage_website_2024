@@ -106,13 +106,8 @@
                             </a>
                         </div>
                         <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="{{ url('table_prices/term/primary_stage') }}">المرحلة الإبتدائية</a>
+                            <h5 class="rbt-card-title text-center"><a href="{{ url('table_prices/term/primary_stage') }}">المرحلة الإبتدائية</a>
                             </h5>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="{{ url('table_prices/term/primary_stage') }}">
-                                    <i class="feather-arrow-left"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,13 +125,8 @@
                             </a>
                         </div>
                         <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="{{ url('table_prices/term/middle_stage') }}">المرحلة الإعدادية</a>
+                            <h5 class="rbt-card-title text-center"><a href="{{ url('table_prices/term/middle_stage') }}">المرحلة الإعدادية</a>
                             </h5>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="{{ url('table_prices/term/middle_stage') }}">
-                                    <i class="feather-arrow-left"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -154,13 +144,8 @@
                             </a>
                         </div>
                         <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="{{ url('table_prices/term/high_stage') }}">المرحلة الثانوية</a>
+                            <h5 class="rbt-card-title text-center"><a href="{{ url('table_prices/term/high_stage') }}">المرحلة الثانوية</a>
                             </h5>
-                            <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="{{ url('table_prices/term/high_stage') }}">
-                                    <i class="feather-arrow-left"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -189,7 +189,7 @@
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
-                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">الترم/مسار مصري - سفارة</a></li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">التيرم داخل مصر / طلاب السفارة</a></li>
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>

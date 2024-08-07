@@ -213,12 +213,26 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Back', '
         Route::get('create' , 'TablePriceController@create');
         Route::post('/store' , 'TablePriceController@store');
         Route::get('/edit/{id}' , 'TablePriceController@edit');
-        Route::get('/show/{id}' , 'TablePriceController@show');
+        // Route::get('/show/{id}' , 'TablePriceController@show');
         Route::post('/update/{id}' , 'TablePriceController@update');
         Route::get('/destroy/{id}' , 'TablePriceController@destroy');
         Route::get('/destroy_selected' , 'TablePriceController@destroy_selected');
         
         Route::get('datatable_table_prices' , 'TablePriceController@datatable_table_prices');
+    });
+
+    // table_prices_morning_school Routes
+    Route::group(['prefix' => 'table_prices_morning_school'] , function (){
+        Route::get('/' , 'TablePriceMorningSchoolController@index');
+        Route::get('create' , 'TablePriceMorningSchoolController@create');
+        Route::post('/store' , 'TablePriceMorningSchoolController@store');
+        Route::get('/edit/{id}' , 'TablePriceMorningSchoolController@edit');
+        // Route::get('/show/{id}' , 'TablePriceMorningSchoolController@show');
+        Route::post('/update/{id}' , 'TablePriceMorningSchoolController@update');
+        Route::get('/destroy/{id}' , 'TablePriceMorningSchoolController@destroy');
+        Route::get('/destroy_selected' , 'TablePriceMorningSchoolController@destroy_selected');
+        
+        Route::get('datatable_table_prices' , 'TablePriceMorningSchoolController@datatable_table_prices');
     });
    
     // settings Routes

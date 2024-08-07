@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('title')
-    الترم/المسار المصري - سفارة - المرحله الإبتدائية
+    التيرم داخل مصر / طلاب السفارة - المرحله الإبتدائية
 @endsection
 
 @section('header')
@@ -24,7 +24,7 @@
                         <div class="col-lg-12">
                             <div class="breadcrumb-inner text-center">
                                 <h2 class="title2">المدرسة الصباحية</h2>
-                                <h2 class="title">الترم/المسار المصري - سفارة - المرحله الإبتدائية</h2>
+                                <h2 class="title">التيرم داخل مصر / طلاب السفارة - المرحله الإبتدائية</h2>
                                 <ul class="page-list">
                                     <li class="rbt-breadcrumb-item"><a href="{{ url('/') }}">الرئيسية</a></li>
                                     <li>
@@ -47,6 +47,14 @@
             </div>
         </div>
     </div>
+
+
+    @if(session('findNull'))
+        <div class="alert alert-dark alert-dismissible fade show text-center" role="alert">
+            {{ session('findNull') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 12px;top: 6px;right: 6px;"></button>
+        </div>
+    @endif
     
     <div class="rbt-rbt-card-area bg-color-extra2 rbt-section-gap" style="padding: 80px 0 100px !important;">
         <div class="container">
@@ -58,7 +66,7 @@
                 </div>
             </div> --}}
             <div class="row row--15 mt_dec--30">
-
+                
                 <!-- Start Service Grid  -->
                 {{-- <div class="col-lg-4  col-md-6  col-12 mt--30 sal-animate" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <div class="service-card service-card-6 rbt-hover rbt-card">

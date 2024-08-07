@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('title')
-    الترم/المسار المصري - سفارة - المرحله الإبتدائية
+    التيرم داخل مصر / طلاب السفارة - المرحله الإبتدائية
 @endsection
 
 @section('header')
@@ -24,13 +24,17 @@
                         <div class="col-lg-12">
                             <div class="breadcrumb-inner text-center">
                                 <h2 class="title2">الفصول المسائية</h2>
-                                <h2 class="title">الترم/المسار المصري - سفارة - المرحله الإبتدائية</h2>
+                                <h2 class="title">التيرم داخل مصر / طلاب السفارة - المرحله الإبتدائية</h2>
                                 <ul class="page-list">
                                     <li class="rbt-breadcrumb-item"><a href="{{ url('/') }}">الرئيسية</a></li>
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
-                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">الترم/مسار مصري - سفارة</a></li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('table_prices') }}">أنظمة الدراسة بالأكاديمية</a></li>
+                                    <li>
+                                        <div class="icon-left"><i class="feather-chevron-left"></i></div>
+                                    </li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">التيرم داخل مصر / طلاب السفارة</a></li>
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
@@ -43,6 +47,13 @@
             </div>
         </div>
     </div>
+    
+    @if(session('findNull'))
+        <div class="alert alert-dark alert-dismissible fade show text-center" role="alert">
+            {{ session('findNull') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="font-size: 12px;top: 6px;right: 6px;"></button>
+        </div>
+    @endif
     
     <div class="rbt-rbt-card-area bg-color-extra2 rbt-section-gap">
         <div class="container">

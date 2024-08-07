@@ -100,9 +100,9 @@ Route::group(['prefix' => '/', 'namespace' => 'App\Http\Controllers\Front'], fun
             
             // primary_stage
             Route::get('/primary_stage' , 'TablePricesMorningSchoolController@primary_stage');
-            Route::get('/primary_stage/1' , 'TablePricesMorningSchoolController@primary_stage_one');
-            Route::get('/primary_stage/2' , 'TablePricesMorningSchoolController@primary_stage_two');
-            Route::get('/primary_stage/3' , 'TablePricesMorningSchoolController@primary_stage_three');
+            // Route::get('/primary_stage/1' , 'TablePricesMorningSchoolController@primary_stage_one');
+            // Route::get('/primary_stage/2' , 'TablePricesMorningSchoolController@primary_stage_two');
+            // Route::get('/primary_stage/3' , 'TablePricesMorningSchoolController@primary_stage_three');
             Route::get('/primary_stage/4' , 'TablePricesMorningSchoolController@primary_stage_four');
             Route::get('/primary_stage/5' , 'TablePricesMorningSchoolController@primary_stage_five');
             Route::get('/primary_stage/6' , 'TablePricesMorningSchoolController@primary_stage_six');
@@ -114,10 +114,10 @@ Route::group(['prefix' => '/', 'namespace' => 'App\Http\Controllers\Front'], fun
             Route::get('/middle_stage/3' , 'TablePricesMorningSchoolController@middle_stage_three');
             
             // high_stage
-            Route::get('/high_stage' , 'TablePricesMorningSchoolController@high_stage');
-            Route::get('/high_stage/1' , 'TablePricesMorningSchoolController@high_stage_one');
-            Route::get('/high_stage/2' , 'TablePricesMorningSchoolController@high_stage_two');
-            Route::get('/high_stage/3' , 'TablePricesMorningSchoolController@high_stage_three');
+            // Route::get('/high_stage' , 'TablePricesMorningSchoolController@high_stage');
+            // Route::get('/high_stage/1' , 'TablePricesMorningSchoolController@high_stage_one');
+            // Route::get('/high_stage/2' , 'TablePricesMorningSchoolController@high_stage_two');
+            // Route::get('/high_stage/3' , 'TablePricesMorningSchoolController@high_stage_three');
         });
     });
 
