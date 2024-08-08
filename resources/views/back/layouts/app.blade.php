@@ -11,7 +11,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('front') }}/assets/images/favicon.ico">
-	<script src="{{ asset('back/assets/js/ckeditor/ckeditor.js') }}"></script>
 
 	{{----------------------------------- all styles --------------------------------}}
 	{{----------------------------------- ----------- --------------------------------}}
@@ -90,6 +89,8 @@
 	{{-- <script src="{{ asset('back/assets/js/pages/dashboard.init.js') }}"></script> --}}
 	<!-- alertify -->
 	<script src="{{ asset('back/assets/js/alertify.min.js') }}"></script>
+	{{-- <script src="{{ asset('back/assets/js/ckeditor/ckeditor.js') }}"></script> --}}
+	<script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
 	@yield('footer')
 	<!-- App js -->
 	<script src="{{ asset('back/assets/js/app.js') }}"></script>

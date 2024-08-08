@@ -189,12 +189,15 @@
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
-                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term') }}">التيرم داخل مصر / طلاب السفارة</a></li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('table_prices') }}">أنظمة الدراسة بالأكاديمية</a></li>
                                     <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i></div>
                                     </li>
-                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/term/primary_stage') }}">المرحله الابتدائية</a></li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('table_prices/morning_school') }}">المدرسة الصباحية</a></li>
                                     <li>
+                                        <div class="icon-left"><i class="feather-chevron-left"></i></div>
+                                    </li>
+                                    <li class="rbt-breadcrumb-item"><a href="{{ url('/table_prices/morning_school/primary_stage') }}">المرحله الابتدائية</a></li>                                    <li>
                                         <div class="icon-left"><i class="feather-chevron-left"></i>{{ $find['class_room_name'] }}</div>
                                     </li>
                                     <li class="rbt-breadcrumb-item active"></li>
@@ -216,13 +219,10 @@
                             <nav class="mainmenu-nav onepagenav">
                                 <ul class="mainmenu">
                                     <li class="current">
-                                        <a href="#packages">اختر الباقة</a>
+                                        <a href="#packages">قيمة الاشتراك</a>
                                     </li>
                                     <li>
-                                        <a href="#arabic_table">جدول حصص العربي</a>
-                                    </li>
-                                    <li>
-                                        <a href="#english_table">جدول حصص اللغات</a>
+                                        <a href="#table_times">جدول الحصص</a>
                                     </li>
                                     <li>
                                         <a href="#register_now">نعم أريد الاستفادة بالخصم</a>
@@ -276,9 +276,9 @@
                         @endif    
 
                         <br style="margin: 50px 0px 30px !important;" id="packages">
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="packages">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
-                                <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">باقات الاشتراك</h2>
+                                <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">قيمة الاشتراك</h2>
                             </div>
                         </div>
                         <br>
@@ -289,19 +289,27 @@
                                 <br>
                                 <br>
                                 <div class="section-title">
-                                    <h4 class="title" >باقات الاشتراك</h4>
+                                    <h4 class="title" >قيمة الاشتراك</h4>
                                 </div>
                                                                 
-                                <div class="table_responsive">
-                                    {!! $find['one_mat_table_prices'] !!}
-                                </div>
+                                @if ($find['one_mat_table_prices_type'] == 'img')
+                                    <div style="padding: 40px 0 20px;">
+                                        <a class="spotlight" href="{{ url('back/images/table_price_morning/'.$find['one_mat_table_prices']) }}">
+                                            <img class="img-thumbnail img-responsive" src="{{ url('back/images/table_price_morning/'.$find['one_mat_table_prices']) }}">
+                                        </a>
+                                    </div>
+                                @else
+                                    <div class="table_responsive">
+                                        {!! $find['one_mat_table_prices'] !!}
+                                    </div>                                    
+                                @endif
                             </div>                            
                         </div>
 
-                        <br>
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="arabic_table">
+                        <br id="table_times">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
-                                <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">جدول العربي</h2>
+                                <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">جدول الحصص</h2>
                             </div>
                         </div>
                         <br>
@@ -311,37 +319,22 @@
                             <div class="rbt-card variation-02 rbt-hover card-minimal bg-gradient-4">
                                 <br>
                                 <div class="section-title">
-                                    <h4 class="title" style="padding-bottom: 30px;">جدول العربي</h4>
+                                    <h4 class="title" style="padding-bottom: 30px;">جدول الحصص</h4>
                                 </div>
 
-                                <div class="arabic_lessons_time" style="padding: 25px 10px;">
-                                    {!! $find['arabic_lessons_time'] !!}
-                                </div>
+                                @if ($find['arabic_lessons_time_type'] == 'img')
+                                    <div style="padding: 40px 0 20px;">
+                                        <a class="spotlight" href="{{ url('back/images/table_price_morning/'.$find['arabic_lessons_time']) }}">
+                                            <img class="img-thumbnail img-responsive" src="{{ url('back/images/table_price_morning/'.$find['arabic_lessons_time']) }}">
+                                        </a>
+                                    </div>
+                                @else
+                                    <div class="table_responsive">
+                                        {!! $find['arabic_lessons_time'] !!}
+                                    </div>                                    
+                                @endif
                             </div>
                         </div>
-
-                        <br>
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="english_table">
-                            <div class="container">
-                                <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">جدول اللغات</h2>
-                            </div>
-                        </div>
-                        <br>
-                        
-                        <!-- english_table  -->
-                        <div class="rbt-course-feature-box details-wrapper mt--30 sal-animate" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300" data-sal-easing="ease-out-back">
-                            <div class="rbt-card variation-02 rbt-hover card-minimal bg-gradient-4">
-                                <br>
-                                <div class="section-title">
-                                    <h4 class="title" >جدول اللغات</h4>
-                                </div>
-
-                                <div class="english_lessons_time" style="padding: 25px 10px;">
-                                    {!! $find['english_lessons_time'] !!}
-                                </div>
-                            </div>
-                        </div>
-
 
                         <br>
                         <br>
@@ -396,7 +389,7 @@
 
 
                         <br style="margin: 50px 0px 30px !important;" id="register_now"/>
-                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;" id="register_now">
+                        <div class="rbt-separator-mid" style="margin: 50px 0px 30px !important;height: 3px;">
                             <div class="container">
                                 <h2 class="fancy" style="--w: 50vw;--c: #f58225;--b:4px;--g: 40px">سجل معنا الان</h2>
                             </div>
@@ -482,7 +475,7 @@
                         </div>
                     </div>
     
-                    <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30 text-center">
+                    {{-- <div class="col-xl-4 col-md-6 col-sm-6 col-12 mt--30 text-center">
                         <div class="rbt-service rbt-service-2 rbt-hover-02 bg-gradient-1">
                             <div class="inner">
                                 <div class="content">
@@ -498,7 +491,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

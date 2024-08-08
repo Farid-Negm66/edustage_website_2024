@@ -58,6 +58,15 @@
     <script src="{{ url('back') }}/assets/file-upload-with-preview.min.js"></script>
     <script src="{{ url('back') }}/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 
+
+
+
+    
+
+
+
+
+
     @include('back.table_prices_morning_school.other_scripts')
     @include('back.table_prices_morning_school.delete')
 @endsection

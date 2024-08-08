@@ -194,7 +194,7 @@
                                         <br>
                                         <div class="form-group mb-3">
                                             <div class="">
-                                                <label for="one_mat_table_prices">جداول الاشتراكات</label>
+                                                <label for="one_mat_table_prices">قيمة الاشتراك</label>
                                                 <i class="fas fa-star" style="color: red;font-size: 8px;float: left;top: 6px;position: relative;right: 3px;"></i>
 
                                                 <textarea class="ckeditor form-control" name="one_mat_table_prices" id="one_mat_table_prices">{{ old('one_mat_table_prices', $find['one_mat_table_prices']) }}</textarea>
@@ -203,6 +203,16 @@
                                                     <span class="text-danger text-bold">{{ $errors->first('one_mat_table_prices') }}</span>
                                                 @endif
                                             </div>
+
+                                            <div>
+                                                <label for="one_mat_table_prices_image">قيمة الاشتراك صورة</label>
+                                                <input type="file" class="one_mat_table_prices_image form-control" name="one_mat_table_prices_image" id="one_mat_table_prices_image" value="{{ old('one_mat_table_prices_image') }}">
+
+                                                @if ($find['one_mat_table_prices_type'] != 'img')                                                
+                                                    <input type="hidden" class="one_mat_table_prices_image_hidden" name="one_mat_table_prices_image_hidden"         id="one_mat_table_prices_image_hidden" value="{{  $find['one_mat_table_prices'] }}">
+                                                @endif
+                                            </div>
+
                                         </div>
                                     
                                         <br>
@@ -245,6 +255,15 @@
 
                                                 @if ($errors->has('arabic_lessons_time'))
                                                     <span class="text-danger text-bold">{{ $errors->first('arabic_lessons_time') }}</span>
+                                                @endif
+                                            </div>
+
+                                            <div>
+                                                <label for="arabic_lessons_time_image">جدول الحصص صورة</label>
+                                                <input type="file" class="arabic_lessons_time_image form-control" name="arabic_lessons_time_image" id="arabic_lessons_time_image" value="{{ old('arabic_lessons_time_image') }}">
+
+                                                @if ($find['arabic_lessons_time_type'] != 'img')                                                
+                                                    <input type="hidden" class="arabic_lessons_time_image_hidden" name="arabic_lessons_time_image_hidden"         id="arabic_lessons_time_image_hidden" value="{{  $find['arabic_lessons_time'] }}">
                                                 @endif
                                             </div>
                                         </div>

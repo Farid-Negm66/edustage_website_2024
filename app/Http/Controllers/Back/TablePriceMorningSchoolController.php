@@ -30,8 +30,8 @@ class TablePriceMorningSchoolController extends Controller
     {
         $this->validate($request , [
             'class_room_name' => 'required|unique:table_prices,class_room_name',
-            'one_mat_table_prices' => 'required',
-            'arabic_lessons_time' => 'required',
+            // 'one_mat_table_prices' => 'required',
+            // 'arabic_lessons_time' => 'required',
             // 'one_mat_body_desc' => 'required',
             // 'one_mat_heading_desc' => 'required',
             // 'all_mat_img_desc'=> 'mimes:jpeg,jpg,png,gif',
@@ -40,8 +40,8 @@ class TablePriceMorningSchoolController extends Controller
         ],[
             'class_room_name.required' => 'قيمة الصف الدراسي مطلوبة',
             'class_room_name.unique' => 'قيمة الصف الدراسي مستخدمة من قبل',
-            'one_mat_table_prices.required' => 'قيمة الإشتراك مطلوبة',
-            'arabic_lessons_time.required' => 'قيمة جدول الحصص مطلوبة',
+            // 'one_mat_table_prices.required' => 'قيمة الإشتراك مطلوبة',
+            // 'arabic_lessons_time.required' => 'قيمة جدول الحصص مطلوبة',
             // 'one_mat_heading_desc.required' => 'قيمة وصف عنوان الباقة مطلوبة',
             // 'one_mat_body_desc.required' => 'قيمة وصف الباقة مطلوبة',
             // 'all_mat_img_desc.mimes' => 'يجب أن يكون الملف عبارة عن صورة من نوع : jpeg ، jpg ، png ، gif',
@@ -66,6 +66,33 @@ class TablePriceMorningSchoolController extends Controller
         //     $file->move($path , $name_video);
         // }
 
+
+
+        // one_mat_table_prices_image
+        // arabic_lessons_time_image
+
+        if(request('one_mat_table_prices_image') == ""){
+            $one_mat_table_prices = request('one_mat_table_prices');
+        }else{
+            $file = request('one_mat_table_prices_image');
+            $one_mat_table_prices = rand(1,1000).$file->getClientOriginalName();
+            $path = public_path('back/images/table_price_morning');
+            $file->move($path , $one_mat_table_prices);
+
+            $one_mat_table_prices_type = 'img';
+        }
+
+        if(request('arabic_lessons_time_image') == ""){
+            $arabic_lessons_time = request('arabic_lessons_time');
+        }else{
+            $file = request('arabic_lessons_time_image');
+            $arabic_lessons_time = rand(1,1000).$file->getClientOriginalName();
+            $path = public_path('back/images/table_price_morning');
+            $file->move($path , $arabic_lessons_time);
+
+            $arabic_lessons_time_type = 'img';
+        }
+
         $data = [
             // 'all_mat_heading_desc' => request("all_mat_heading_desc"),
             // 'all_mat_body_desc' => request("all_mat_body_desc"),
@@ -81,12 +108,13 @@ class TablePriceMorningSchoolController extends Controller
             // 'one_mat_heading_desc' => request('one_mat_heading_desc'),
             // 'one_mat_body_desc' => request('one_mat_body_desc'),
             'class_room_name' => request('class_room_name'),
-            'one_mat_table_prices' => request('one_mat_table_prices'),
+            'one_mat_table_prices' => $one_mat_table_prices,
+            'one_mat_table_prices_type' => request('one_mat_table_prices_image') == null ? null : 'img',
             'one_mat_counter_heading' => request('one_mat_counter_heading'),
             'one_mat_counter_from' => request('one_mat_counter_from'),
             'one_mat_counter_to' => request('one_mat_counter_to'),
-            'arabic_lessons_time' => request('arabic_lessons_time'),
-            'english_lessons_time' => null,
+            'arabic_lessons_time' => $arabic_lessons_time,
+            'arabic_lessons_time_type' => request('arabic_lessons_time_image') == null ? null : 'img',
         ];
 
         TablePrice::create($data);

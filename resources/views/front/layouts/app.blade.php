@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="{{ url('front') }}/assets/css/plugins/magnigy-popup.min.css">
     <link rel="stylesheet" href="{{ url('front') }}/assets/css/plugins/plyr.css">
     <link rel="stylesheet" href="{{ url('front') }}/assets/css/style.css">
+    {{-- spotlight --}}
+    <link href="{{ url('back') }}/assets/css/spotlight.min.css" rel="stylesheet" type="text/css" />
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,6 +159,11 @@
     <!-- Main JS -->
     <script src="{{ url('front') }}/assets/js/main.js"></script>
 
+    <!-- spotlight -->
+    <script src="{{ url('back') }}/assets/js/spotlight.bundle.js"></script>
+    <script src="{{ url('back') }}/assets/js/spotlight.min.js"></script>
+
+  
 	@yield('footer')
 </body>
 

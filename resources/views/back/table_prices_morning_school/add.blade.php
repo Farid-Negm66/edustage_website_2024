@@ -11,7 +11,29 @@
 @endsection
 
 @section('footer')
-    {{-- <script src="{{ url('back') }}/assets/libs/dropzone/min/dropzone.min.js"></script> --}}
+    <script>
+        $(document).ready(function () {
+
+            const one_mat_table_prices = $("#one_mat_table_prices");
+            const one_mat_table_prices_image = $("#one_mat_table_prices_image");
+
+            const arabic_lessons_time = $("#arabic_lessons_time");
+            const arabic_lessons_time_image = $("#arabic_lessons_time_image");
+
+            $("#save").click(function(e){
+                if(one_mat_table_prices_image.val() == '' && CKEDITOR.instances.one_mat_table_prices.getData() == ''){
+                    alert("يجب ملأ قيمه واحدة لقيمة الإشتراك سواء صورة او من خلال المحرر");
+                    e.preventDefault();
+                }
+
+                if(arabic_lessons_time_image.val() == '' && CKEDITOR.instances.arabic_lessons_time.getData() == ''){
+                    alert("يجب ملأ قيمه واحدة ل جدول الحصص سواء صورة او من خلال المحرر");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+
     @include('back.table_prices.delete')
 @endsection
 
@@ -167,6 +189,11 @@
                                                     <span class="text-danger text-bold">{{ $errors->first('one_mat_table_prices') }}</span>
                                                 @endif
                                             </div>
+
+                                            <div>
+                                                <label for="one_mat_table_prices_image">قيمة الاشتراك صورة</label>
+                                                <input type="file" class="one_mat_table_prices_image form-control" name="one_mat_table_prices_image" id="one_mat_table_prices_image" value="{{ old('one_mat_table_prices_image') }}">
+                                            </div>
                                         </div>
                                     
                                         <br>
@@ -201,6 +228,12 @@
                                                     <span class="text-danger text-bold">{{ $errors->first('arabic_lessons_time') }}</span>
                                                 @endif
                                             </div>
+
+                                            <div>
+                                                <label for="arabic_lessons_time_image">جدول الحصص صورة</label>
+                                                <input type="file" class="arabic_lessons_time_image form-control" name="arabic_lessons_time_image" id="arabic_lessons_time_image" value="{{ old('arabic_lessons_time_image') }}">
+                                            </div>
+
                                         </div>
 
                                         <br><br>

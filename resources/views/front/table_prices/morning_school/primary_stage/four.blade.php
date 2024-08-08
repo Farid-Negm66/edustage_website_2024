@@ -293,9 +293,17 @@
                                     <h4 class="title" >قيمة الاشتراك</h4>
                                 </div>
                                                                 
-                                <div class="table_responsive">
-                                    {!! $find['one_mat_table_prices'] !!}
-                                </div>
+                                @if ($find['one_mat_table_prices_type'] == 'img')
+                                    <div style="padding: 40px 0 20px;">
+                                        <a class="spotlight" href="{{ url('back/images/table_price_morning/'.$find['one_mat_table_prices']) }}">
+                                            <img class="img-thumbnail img-responsive" src="{{ url('back/images/table_price_morning/'.$find['one_mat_table_prices']) }}">
+                                        </a>
+                                    </div>
+                                @else
+                                    <div class="table_responsive">
+                                        {!! $find['one_mat_table_prices'] !!}
+                                    </div>                                    
+                                @endif
                             </div>                            
                         </div>
 
@@ -315,9 +323,17 @@
                                     <h4 class="title" style="padding-bottom: 30px;">جدول الحصص</h4>
                                 </div>
 
-                                <div class="arabic_lessons_time" style="padding: 25px 10px;">
-                                    {!! $find['arabic_lessons_time'] !!}
-                                </div>
+                                @if ($find['arabic_lessons_time_type'] == 'img')
+                                    <div style="padding: 40px 0 20px;">
+                                        <a class="spotlight" href="{{ url('back/images/table_price_morning/'.$find['arabic_lessons_time']) }}">
+                                            <img class="img-thumbnail img-responsive" src="{{ url('back/images/table_price_morning/'.$find['arabic_lessons_time']) }}">
+                                        </a>
+                                    </div>
+                                @else
+                                    <div class="table_responsive">
+                                        {!! $find['arabic_lessons_time'] !!}
+                                    </div>                                    
+                                @endif
                             </div>
                         </div>                    
 
