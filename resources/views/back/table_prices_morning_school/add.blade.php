@@ -13,7 +13,6 @@
 @section('footer')
     <script>
         $(document).ready(function () {
-
             const one_mat_table_prices = $("#one_mat_table_prices");
             const one_mat_table_prices_image = $("#one_mat_table_prices_image");
 

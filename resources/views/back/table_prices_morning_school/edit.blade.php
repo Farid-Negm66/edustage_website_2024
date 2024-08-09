@@ -6,6 +6,31 @@
 @endsection
 
 @section('header')
+	{{-- spotlight --}}
+    <link href="{{ url('back') }}/assets/css/spotlight.min.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        $(document).ready(function () {
+            const one_mat_table_prices = $("#one_mat_table_prices");
+            const one_mat_table_prices_image = $("#one_mat_table_prices_image");
+
+            const arabic_lessons_time = $("#arabic_lessons_time");
+            const arabic_lessons_time_image = $("#arabic_lessons_time_image");
+
+            $("#save").click(function(e){
+                if(one_mat_table_prices_image.val() == '' && CKEDITOR.instances.one_mat_table_prices.getData() == ''){
+                    alert("يجب ملأ قيمه واحدة لقيمة الإشتراك سواء صورة او من خلال المحرر");
+                    e.preventDefault();
+                }
+
+                if(arabic_lessons_time_image.val() == '' && CKEDITOR.instances.arabic_lessons_time.getData() == ''){
+                    alert("يجب ملأ قيمه واحدة ل جدول الحصص سواء صورة او من خلال المحرر");
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+    
     <style>
         #counter{
             background: rgb(94, 94, 255);
@@ -21,6 +46,11 @@
 @section('footer')
     {{-- Count Down Timer --}}
     <script src="{{ asset('/back/assets/js') }}/yscountdown.min.js"></script> 
+    <!-- spotlight -->
+	<script src="{{ url('back') }}/assets/js/spotlight.bundle.js"></script>
+	<script src="{{ url('back') }}/assets/js/spotlight.min.js"></script>
+
+
     <script>
         $(function(){
                 var endDate = @json($find['one_mat_counter_to']);
@@ -197,25 +227,39 @@
                                                 <label for="one_mat_table_prices">قيمة الاشتراك</label>
                                                 <i class="fas fa-star" style="color: red;font-size: 8px;float: left;top: 6px;position: relative;right: 3px;"></i>
 
-                                                <textarea class="ckeditor form-control" name="one_mat_table_prices" id="one_mat_table_prices">{{ old('one_mat_table_prices', $find['one_mat_table_prices']) }}</textarea>
+                                                <textarea class="ckeditor form-control" name="one_mat_table_prices" id="one_mat_table_prices">
+                                                    @if($find['one_mat_table_prices_type'] != 'img')
+                                                        {{ old('one_mat_table_prices', $find['one_mat_table_prices']) }}
+                                                    @endif
+                                                </textarea>
 
                                                 @if ($errors->has('one_mat_table_prices'))
                                                     <span class="text-danger text-bold">{{ $errors->first('one_mat_table_prices') }}</span>
                                                 @endif
                                             </div>
 
-                                            <div>
-                                                <label for="one_mat_table_prices_image">قيمة الاشتراك صورة</label>
-                                                <input type="file" class="one_mat_table_prices_image form-control" name="one_mat_table_prices_image" id="one_mat_table_prices_image" value="{{ old('one_mat_table_prices_image') }}">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <label for="one_mat_table_prices_image">قيمة الاشتراك صورة</label>
+                                                    <input type="file" class="one_mat_table_prices_image form-control" name="one_mat_table_prices_image" id="one_mat_table_prices_image" value="{{ old('one_mat_table_prices_image') }}">
 
-                                                @if ($find['one_mat_table_prices_type'] != 'img')                                                
-                                                    <input type="hidden" class="one_mat_table_prices_image_hidden" name="one_mat_table_prices_image_hidden"         id="one_mat_table_prices_image_hidden" value="{{  $find['one_mat_table_prices'] }}">
+                                                    @if ($find['one_mat_table_prices_type'] != 'img')                                                
+                                                        <input type="hidden" class="one_mat_table_prices_image_hidden" name="one_mat_table_prices_image_hidden"         id="one_mat_table_prices_image_hidden" value="{{  $find['one_mat_table_prices'] }}">
+                                                    @endif
+                                                </div>
+
+                                                @if($find['one_mat_table_prices_type'] == 'img')
+                                                    <div class="col-md-4">
+                                                        <a class="spotlight" href="{{ url('back/images/table_price_morning/'.$find['one_mat_table_prices']) }}">
+                                                            <img class="img-thumbnail img-responsive" src="{{ url('back/images/table_price_morning/'.$find['one_mat_table_prices']) }}" style="height: 160px !important;">
+                                                        </a>            
+                                                    </div>                                                    
                                                 @endif
                                             </div>
 
                                         </div>
                                     
-                                        <br>
+                                        <br> <hr> <br>
                                         <div class="form-group mb-3">
                                             <div class="row">                                            
                                                 <div class="col-md-9">
@@ -251,19 +295,33 @@
                                                 <label for="arabic_lessons_time">جدول الحصص</label>
                                                 <i class="fas fa-star" style="color: red;font-size: 8px;float: left;top: 6px;position: relative;right: 3px;"></i>
 
-                                                <textarea class="ckeditor form-control" name="arabic_lessons_time" id="arabic_lessons_time">{{ old('arabic_lessons_time', $find['arabic_lessons_time']) }}</textarea>
+                                                <textarea class="ckeditor form-control" name="arabic_lessons_time" id="arabic_lessons_time">
+                                                    @if($find['arabic_lessons_time_type'] != 'img')
+                                                        {{ old('arabic_lessons_time', $find['arabic_lessons_time']) }}
+                                                    @endif
+                                                </textarea>
 
                                                 @if ($errors->has('arabic_lessons_time'))
                                                     <span class="text-danger text-bold">{{ $errors->first('arabic_lessons_time') }}</span>
                                                 @endif
                                             </div>
 
-                                            <div>
-                                                <label for="arabic_lessons_time_image">جدول الحصص صورة</label>
-                                                <input type="file" class="arabic_lessons_time_image form-control" name="arabic_lessons_time_image" id="arabic_lessons_time_image" value="{{ old('arabic_lessons_time_image') }}">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <label for="arabic_lessons_time_image">جدول الحصص صورة</label>
+                                                    <input type="file" class="arabic_lessons_time_image form-control" name="arabic_lessons_time_image" id="arabic_lessons_time_image" value="{{ old('arabic_lessons_time_image') }}">
 
-                                                @if ($find['arabic_lessons_time_type'] != 'img')                                                
-                                                    <input type="hidden" class="arabic_lessons_time_image_hidden" name="arabic_lessons_time_image_hidden"         id="arabic_lessons_time_image_hidden" value="{{  $find['arabic_lessons_time'] }}">
+                                                    @if ($find['arabic_lessons_time_type'] != 'img')                                                
+                                                        <input type="hidden" class="arabic_lessons_time_image_hidden" name="arabic_lessons_time_image_hidden"         id="arabic_lessons_time_image_hidden" value="{{  $find['arabic_lessons_time'] }}">
+                                                    @endif
+                                                </div>
+
+                                                @if($find['arabic_lessons_time_type'] == 'img')
+                                                    <div class="col-md-4">
+                                                        <a class="spotlight" href="{{ url('back/images/table_price_morning/'.$find['arabic_lessons_time']) }}">
+                                                            <img class="img-thumbnail img-responsive" src="{{ url('back/images/table_price_morning/'.$find['arabic_lessons_time']) }}" style="height: 160px !important;">
+                                                        </a>            
+                                                    </div>                                                    
                                                 @endif
                                             </div>
                                         </div>
